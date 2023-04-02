@@ -59,6 +59,7 @@ class LinkedList {
         // console.log(data);
         return data;
     }
+
     // Find the node by it's value
     findNodeByValue(value) {
         let data = this.head;
@@ -73,9 +74,25 @@ class LinkedList {
             data = data.next;
         }
     }
+
     // Update value of a node at a given position
     updateNode(value, position) {
         this.findNodeByPosition(position).value = value;
+    }
+
+    // Delete a node at a given position
+    deleteNode(position) {
+        if (position > this.length || position < 1) {
+            return "Node does not exist!";
+        }
+        if (position === 1) {
+            let node = this.findNodeByPosition(position);
+            this.head = node.next;
+            node.next = null;
+        } else {
+            let previousNode = this.findNodeByPosition(position - 1);
+            previousNode.next = previousNode.next.next;
+        }
     }
 
     // Check values of the list
@@ -107,7 +124,8 @@ list.append(51);
 list.appendAt(14, 2);
 console.log(list.loopThroughList());
 console.log(list.findNodeByPosition(7));
-list.updateNode(7, 1);
+list.deleteNode(3);
+// list.updateNode(7, 1);
 
 // console.log(list);
 // console.log(list.findNode(1));
