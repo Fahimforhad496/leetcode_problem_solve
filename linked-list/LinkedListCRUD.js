@@ -93,6 +93,7 @@ class LinkedList {
             let previousNode = this.findNodeByPosition(position - 1);
             previousNode.next = previousNode.next.next;
         }
+        this.length--;
     }
 
     // Check values of the list
