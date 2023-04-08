@@ -30,6 +30,7 @@ class DoublyLinkList {
         this.head = node;
         this.length++;
     }
+
     loopThroughList() {
         let data = this.head;
         let counter = 1;
